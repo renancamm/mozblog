@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h5 class="mb-3"><small>LATEST POSTS</small></h5>
+
+    {% if post_list %}
+        {% for post in post_list %}
+            <div>
+            <h5 class="mb-0"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+            <p class="text-secondary m-0"><small>Posted by <a class="text-secondary" href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> in {{ post.published_at }}</small></p>
+            <p>{{ post.content|truncatewords:10 }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>
+        <p>There are no posts.</p>
+        </div>
+    {% endif %}
+
+
+{% include "pagination.html" %}
+
+
+{% endblock %}

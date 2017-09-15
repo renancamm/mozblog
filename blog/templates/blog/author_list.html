@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h5 class="mb-3"><small>AUTHORS</small></h5>
+
+    {% if author_list %}
+        {% for author in author_list %}
+            <div>
+            <h5><a href="{{ author.get_absolute_url }}">{{ author }}</a></h5>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>
+        <p>There are no authors.</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

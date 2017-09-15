@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2>{{ post }}</h2>
+    <p class="text-secondary">Posted by <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> at {{ post.published_at }}</p>
+    <p>{{ post.content|linebreaks }}</p>
+
+    <hr class="mt-5">
+
+    <h5 class="mb-3"><small>COMMENTS</small></h5>
+
+    {% for comment in post.comment_set.all %}
+        <div class="card mb-3">
+        <div class="card-body">
+        <p class="text-secondary m-0"><small>{{ comment.author }} comment at {{ comment.published_at }}</small></p>
+        <p>{{ comment.content }}</p>
+        </div>
+        </div>
+    {% endfor %}
+
+    <a href="{% url 'create-comment' post.id %}">Add new comment</a>
+
+
+{% endblock %}
