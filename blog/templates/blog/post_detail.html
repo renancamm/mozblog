@@ -5,7 +5,7 @@
 {% load humanize %}
 
     <h2>{{ post }}</h2>
-    <p class="text-secondary">Posted by <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> at {{ post.published_at|date:"d F Y" }}</p>
+    <p class="text-secondary">Posted by <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a> at {{ post.published_at|date:"F d, Y" }}</p>
     <p>{{ post.content|linebreaks }}</p>
 
     <hr class="mt-5">
