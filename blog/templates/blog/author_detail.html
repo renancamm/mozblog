@@ -12,7 +12,7 @@
     {% for post in author.post_set.all %}
         <div>
         <h5 class="mb-0"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
-        <p class="text-secondary m-0"><small>{{ post.published_at }}</small></p>
+        <p class="text-secondary m-0"><small>{{ post.published_at|date:"d F Y" }}</small></p>
         <p>{{ post.content|truncatewords:10 }}</p>
         </div>
     {% endfor %}
